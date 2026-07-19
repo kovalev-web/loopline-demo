@@ -9,7 +9,7 @@
     --fog: #EEF1F4;
     --ink: #161B22;
     --slate: #5B6B78;
-    --ember: #D9622D;
+    --azure: #3355D8;
     --mist: #D7DEE3;
     --card: #FBFAF8;
   }
@@ -28,7 +28,7 @@
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ember);
+    color: var(--azure);
   }
 
   /* header */
@@ -75,7 +75,7 @@
     max-width: 700px;
     margin: 18px auto 16px;
   }
-  .hero h1 em { font-style: italic; color: var(--ember); }
+  .hero h1 em { font-style: italic; color: var(--azure); }
   .hero .sub {
     font-size: 17px;
     max-width: 480px;
@@ -93,6 +93,21 @@
     text-decoration: none;
     border: 1px solid var(--ink);
     color: var(--ink);
+  }
+
+  .hero-image-wrap { max-width: 1080px; margin: 0 auto 70px; padding: 0 24px; }
+  .hero-image-wrap img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
   }
 
   /* timeline signature */
@@ -114,7 +129,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--ember);
+    background: var(--azure);
     transform: translate(-50%, -50%);
   }
   .timeline .tag {
@@ -145,7 +160,7 @@
   .step .num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
-    color: var(--ember);
+    color: var(--azure);
     margin-bottom: 10px;
   }
   .step h3 {
@@ -286,6 +301,10 @@
   </div>
 </div>
 
+<div class="hero-image-wrap">
+  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=100&w=4000" alt="team">
+</div>
+
 <div class="timeline-wrap">
   <div class="timeline">
     <div class="dot" style="left:30%">
@@ -328,15 +347,15 @@
 <div class="panel-wrap">
   <div class="panel">
     <div class="panel-row">
-      <span class="who">Mara Chen — Design</span>
+      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=47" width="28" height="28" loading="lazy" alt="">Mara Chen — Design</span>
       <span class="when">07:12 PST</span>
     </div>
     <div class="panel-row">
-      <span class="who">Jonas Beck — Platform</span>
+      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=12" width="28" height="28" loading="lazy" alt="">Jonas Beck — Platform</span>
       <span class="when">16:20 CET</span>
     </div>
     <div class="panel-row">
-      <span class="who">Ren Okafor — Growth</span>
+      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=33" width="28" height="28" loading="lazy" alt="">Ren Okafor — Growth</span>
       <span class="when">23:05 JST</span>
     </div>
   </div>
