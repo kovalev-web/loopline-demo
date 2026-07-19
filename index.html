@@ -1,6 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline — Async Standups Without the Meetings</title>
+<meta name="description" content="Loopline turns daily updates into organized async threads so your whole team stays informed without endless meetings. Post when your day starts, read on yours.">
+<link rel="canonical" href="https://loopline-demo.vercel.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Loopline — Async Standups Without the Meetings">
+<meta property="og:description" content="Post an update when your day starts. Loopline threads it so nobody needs a meeting to stay aligned.">
+<meta property="og:url" content="https://loopline-demo.vercel.app/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loopline — Async Standups Without the Meetings">
+<meta name="twitter:description" content="Post an update when your day starts. Loopline threads it so nobody needs a meeting to stay aligned.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233355D8'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Loopline","url":"https://loopline-demo.vercel.app/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Loopline","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Async standup tool that threads daily team updates so distributed teams can skip live meetings.","url":"https://loopline-demo.vercel.app/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,420;0,600;1,420&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -8,7 +32,7 @@
   :root {
     --fog: #EEF1F4;
     --ink: #161B22;
-    --slate: #5B6B78;
+    --slate: #46535D;
     --azure: #3355D8;
     --mist: #D7DEE3;
     --card: #FBFAF8;
@@ -22,6 +46,8 @@
     color: var(--slate);
     font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3 { font-family: 'Fraunces', serif; color: var(--ink); }
 
   .eyebrow {
     font-family: 'IBM Plex Mono', monospace;
@@ -52,11 +78,12 @@
     font-size: 14px;
   }
   .nav-cta {
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    padding: 8px 16px;
+    background: var(--azure);
+    color: #fff;
+    padding: 9px 18px;
     border-radius: 999px;
     font-size: 13px;
+    font-weight: 500;
   }
 
   /* hero */
@@ -67,55 +94,106 @@
     text-align: center;
   }
   .hero h1 {
-    font-family: 'Fraunces', serif;
     font-weight: 420;
-    font-size: 56px;
-    line-height: 1.08;
-    color: var(--ink);
-    max-width: 700px;
+    font-size: 50px;
+    line-height: 1.12;
+    max-width: 760px;
     margin: 18px auto 16px;
   }
   .hero h1 em { font-style: italic; color: var(--azure); }
   .hero .sub {
     font-size: 17px;
-    max-width: 480px;
-    margin: 0 auto 32px;
+    max-width: 520px;
+    margin: 0 auto 28px;
     line-height: 1.5;
   }
 
-  .cta-row { display: flex; justify-content: center; gap: 14px; margin-bottom: 56px; }
-  .cta-row a {
+  .capture {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .capture input {
+    padding: 13px 16px;
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    width: 260px;
+    background: var(--card);
+  }
+  .capture button {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    padding: 13px 24px;
+    padding: 13px 22px;
     border-radius: 8px;
-    text-decoration: none;
-    border: 1px solid var(--ink);
-    color: var(--ink);
+    border: none;
+    background: var(--azure);
+    color: #fff;
+    cursor: pointer;
   }
-
-  .hero-image-wrap { max-width: 1080px; margin: 0 auto 70px; padding: 0 24px; }
-  .hero-image-wrap img {
-    width: 100%;
+  .cta-sub {
     display: block;
-    border-radius: 16px;
+    font-size: 13px;
+    color: var(--slate);
+    text-decoration: underline;
+    margin-bottom: 44px;
   }
 
+  /* product mock */
+  .mock-wrap { max-width: 780px; margin: 0 auto 90px; padding: 0 24px; }
+  .mock {
+    background: var(--card);
+    border: 1px solid var(--mist);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(22,27,34,0.25);
+  }
+  .mock-bar {
+    display: flex;
+    gap: 6px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--mist);
+  }
+  .mock-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--mist); }
+  .mock-title {
+    padding: 14px 20px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .panel-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: 13px;
+  }
+  .panel-row + .panel-row { border-top: 1px solid var(--mist); }
+  .panel-row .who { display: flex; align-items: center; font-weight: 500; color: var(--ink); }
+  .panel-row .when {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--slate);
+  }
   .avatar {
     width: 28px;
     height: 28px;
     border-radius: 50%;
     margin-right: 10px;
-    vertical-align: middle;
   }
 
+  /* section headings */
+  .section-head { text-align: center; margin-bottom: 30px; }
+  .section-head h2 { font-weight: 420; font-size: 26px; margin: 0; }
+
   /* timeline signature */
-  .timeline-wrap {
-    max-width: 1080px;
-    margin: 0 auto 90px;
-    padding: 0 24px;
-  }
+  .timeline-wrap { max-width: 1080px; margin: 0 auto 90px; padding: 0 24px; }
   .timeline {
     position: relative;
     height: 3px;
@@ -142,151 +220,127 @@
     white-space: nowrap;
   }
   .timeline .tag span { display: block; color: var(--slate); font-size: 10px; }
-  .timeline-caption {
-    text-align: center;
-    font-size: 13px;
-    color: var(--slate);
-  }
+  .timeline-caption { text-align: center; font-size: 13px; color: var(--slate); }
 
   /* how it works */
   .steps {
     max-width: 1080px;
-    margin: 0 auto 100px;
+    margin: 0 auto;
     padding: 0 24px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
+  .step { padding: 22px; background: var(--card); border: 1px solid var(--mist); border-radius: 12px; }
   .step .num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
     color: var(--azure);
     margin-bottom: 10px;
   }
-  .step h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 19px;
-    color: var(--ink);
-    margin: 0 0 8px;
-  }
+  .step h3 { font-weight: 600; font-size: 19px; margin: 0 0 8px; }
   .step p { font-size: 14px; line-height: 1.5; margin: 0; }
 
-  /* product panel */
-  .panel-wrap { max-width: 900px; margin: 0 auto 110px; padding: 0 24px; }
-  .panel {
+  .cta-repeat { text-align: center; margin: 44px 0 100px; }
+  .cta-repeat a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--azure);
+    text-decoration: none;
+    border-bottom: 1px solid var(--azure);
+    padding-bottom: 2px;
+  }
+
+  /* proof */
+  .proof { max-width: 1080px; margin: 0 auto 100px; padding: 0 24px; }
+  .proof .metric {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--azure);
+    margin-bottom: 40px;
+  }
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial {
     background: var(--card);
     border: 1px solid var(--mist);
-    border-radius: 14px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 22px;
   }
-  .panel-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 8px;
-    font-size: 13px;
-  }
-  .panel-row + .panel-row { border-top: 1px solid var(--mist); }
-  .panel-row .who { font-weight: 500; color: var(--ink); }
-  .panel-row .when {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--slate);
-  }
+  .testimonial p { font-size: 14px; line-height: 1.55; color: var(--ink); margin: 0 0 16px; }
+  .testimonial .person { display: flex; align-items: center; font-size: 13px; }
+  .testimonial .person strong { color: var(--ink); display: block; }
+  .testimonial .person span { color: var(--slate); font-size: 12px; }
 
-  /* trust */
-  .trust { max-width: 1080px; margin: 0 auto 100px; padding: 0 24px; text-align: center; }
-  .trust h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 420;
-    font-size: 22px;
-    color: var(--ink);
-    margin-bottom: 28px;
-  }
-  .logo-row { display: flex; justify-content: center; align-items: center; gap: 42px; flex-wrap: wrap; }
-  .logo-row span {
-    font-size: 19px;
-    color: var(--ink);
-    opacity: 0.42;
-    letter-spacing: 0.01em;
-  }
-  .logo-row span.serif { font-family: 'Fraunces', serif; font-style: italic; font-weight: 600; }
-  .logo-row span.mono { font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
-  .logo-row span.sans { font-family: 'Inter', sans-serif; font-weight: 600; }
-  .logo-row span.sans::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--ink);
-    border-radius: 2px;
-    margin-right: 7px;
-    vertical-align: middle;
-  }
+  /* faq */
+  .faq { max-width: 700px; margin: 0 auto 100px; padding: 0 24px; }
+  .faq-item { padding: 20px 0; border-bottom: 1px solid var(--mist); }
+  .faq-item:first-child { border-top: 1px solid var(--mist); }
+  .faq-item h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .faq-item p { font-size: 14px; line-height: 1.6; margin: 0; }
 
-  /* about */
-  .about { max-width: 640px; margin: 0 auto 100px; padding: 0 24px; }
-  .about h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--ink);
-  }
-  .about p { font-size: 15px; line-height: 1.7; }
-
-  /* form */
-  .signup { max-width: 480px; margin: 0 auto 90px; padding: 0 24px; }
-  .signup .panel-title {
-    font-family: 'Fraunces', serif;
-    font-size: 20px;
-    color: var(--ink);
-    margin-bottom: 16px;
-  }
-  form {
+  /* signup */
+  .signup { max-width: 440px; margin: 0 auto 100px; padding: 0 24px; text-align: center; }
+  .signup h2 { font-weight: 420; font-size: 24px; margin-bottom: 8px; }
+  .signup .lede { font-size: 14px; margin-bottom: 20px; }
+  .signup form {
     background: var(--card);
     border: 1px solid var(--mist);
     border-radius: 14px;
     padding: 24px;
+    text-align: left;
   }
-  form label {
-    display: block;
-    font-size: 12px;
-    color: var(--slate);
-    margin: 14px 0 4px;
-  }
-  form label:first-child { margin-top: 0; }
-  form input {
+  .signup form label { display: block; font-size: 12px; color: var(--slate); margin: 14px 0 4px; }
+  .signup form label:first-of-type { margin-top: 0; }
+  .signup form input {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid var(--mist);
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
+    background: #fff;
   }
-  form button {
+  .signup form button {
     margin-top: 20px;
     width: 100%;
     padding: 12px;
-    background: var(--ink);
-    color: var(--fog);
+    background: var(--azure);
+    color: #fff;
     border: none;
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
   }
+  .privacy-note { font-size: 12px; color: var(--slate); margin-top: 12px; text-align: center; }
 
+  /* footer */
   footer {
-    text-align: center;
-    padding: 24px;
-    font-size: 12px;
-    color: var(--slate);
+    border-top: 1px solid var(--mist);
+    padding: 32px 24px;
   }
+  .footer-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .footer-inner a { color: var(--slate); text-decoration: none; margin-left: 18px; }
+  .footer-inner .company { color: var(--slate); }
 
   @media (max-width: 720px) {
-    .hero h1 { font-size: 38px; }
-    .steps { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 34px; }
+    .steps, .testimonials { grid-template-columns: 1fr; }
     header nav { display: none; }
   }
 </style>
@@ -296,48 +350,57 @@
 <header>
   <div class="wordmark">Loopline</div>
   <nav>
-    <a href="#">Product</a>
-    <a href="#">Customers</a>
-    <a href="#">Pricing</a>
-    <a href="#" class="nav-cta">Get started</a>
+    <a href="#product">Product</a>
+    <a href="#proof">Customers</a>
+    <a href="#signup" class="nav-cta">Get started</a>
   </nav>
 </header>
 
+<main>
+
 <div class="hero">
   <div class="eyebrow">Async Standups</div>
-  <h1>A <em>better</em> way to run your team.</h1>
-  <p class="sub">Loopline helps teams stay in sync, wherever they are.</p>
-  <div class="cta-row">
-    <a href="#">Start free trial</a>
-    <a href="#">Book a demo</a>
+  <h1>Run async standups across time zones — <em>no meetings required.</em></h1>
+  <p class="sub">Post an update when your day starts. Loopline threads it into one feed so the rest of the team reads it on theirs.</p>
+  <form class="capture" action="#signup">
+    <input type="email" placeholder="Work email" aria-label="Work email" required>
+    <button type="submit">Start my free trial</button>
+  </form>
+  <a class="cta-sub" href="#signup">Book a demo instead →</a>
+</div>
+
+<div class="mock-wrap" id="product">
+  <div class="mock">
+    <div class="mock-bar"><span></span><span></span><span></span></div>
+    <div class="mock-title">Today's updates</div>
+    <div class="panel-row">
+      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=47" width="28" height="28" loading="lazy" alt="Mara Chen">Mara Chen — Design</span>
+      <span class="when">07:12 PST</span>
+    </div>
+    <div class="panel-row">
+      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=12" width="28" height="28" loading="lazy" alt="Jonas Beck">Jonas Beck — Platform</span>
+      <span class="when">16:20 CET</span>
+    </div>
+    <div class="panel-row">
+      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=33" width="28" height="28" loading="lazy" alt="Ren Okafor">Ren Okafor — Growth</span>
+      <span class="when">23:05 JST</span>
+    </div>
   </div>
 </div>
 
-<div class="hero-image-wrap">
-  <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=100&w=4000" alt="team">
-</div>
-
 <div class="timeline-wrap">
+  <div class="section-head"><h2>Built for teams in every time zone</h2></div>
   <div class="timeline">
-    <div class="dot" style="left:30%">
-      <div class="tag">San Francisco<span>07:12</span></div>
-    </div>
-    <div class="dot" style="left:44%">
-      <div class="tag">New York<span>10:34</span></div>
-    </div>
-    <div class="dot" style="left:60%">
-      <div class="tag">London<span>15:20</span></div>
-    </div>
-    <div class="dot" style="left:74%">
-      <div class="tag">Berlin<span>16:20</span></div>
-    </div>
-    <div class="dot" style="left:96%">
-      <div class="tag">Tokyo<span>23:05</span></div>
-    </div>
+    <div class="dot" style="left:30%"><div class="tag">San Francisco<span>07:12</span></div></div>
+    <div class="dot" style="left:44%"><div class="tag">New York<span>10:34</span></div></div>
+    <div class="dot" style="left:60%"><div class="tag">London<span>15:20</span></div></div>
+    <div class="dot" style="left:74%"><div class="tag">Berlin<span>16:20</span></div></div>
+    <div class="dot" style="left:96%"><div class="tag">Tokyo<span>23:05</span></div></div>
   </div>
   <div class="timeline-caption">One team, five time zones, zero meetings.</div>
 </div>
 
+<div class="section-head"><h2>How it works</h2></div>
 <div class="steps">
   <div class="step">
     <div class="num">01</div>
@@ -355,61 +418,77 @@
     <p>No live meeting required to stay aligned.</p>
   </div>
 </div>
+<div class="cta-repeat"><a href="#signup">Start my free trial →</a></div>
 
-<div class="panel-wrap">
-  <div class="panel">
-    <div class="panel-row">
-      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=47" width="28" height="28" loading="lazy" alt="">Mara Chen — Design</span>
-      <span class="when">07:12 PST</span>
+<div class="proof" id="proof">
+  <div class="section-head"><h2>Trusted by teams who ship</h2></div>
+  <div class="metric">Used by 340+ remote teams across 40 countries</div>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>"We cut our daily standup entirely. Everyone still knows what shipped."</p>
+      <div class="person">
+        <img class="avatar" src="https://i.pravatar.cc/56?img=5" width="28" height="28" loading="lazy" alt="Priya Anand">
+        <span><strong>Priya Anand</strong><span>Eng manager, 14-person remote team</span></span>
+      </div>
     </div>
-    <div class="panel-row">
-      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=12" width="28" height="28" loading="lazy" alt="">Jonas Beck — Platform</span>
-      <span class="when">16:20 CET</span>
+    <div class="testimonial">
+      <p>"Our SF and Berlin teams finally overlap on something: the feed, not a Zoom call."</p>
+      <div class="person">
+        <img class="avatar" src="https://i.pravatar.cc/56?img=21" width="28" height="28" loading="lazy" alt="Tomas Bekker">
+        <span><strong>Tomas Bekker</strong><span>Head of Product, Northfield</span></span>
+      </div>
     </div>
-    <div class="panel-row">
-      <span class="who"><img class="avatar" src="https://i.pravatar.cc/56?img=33" width="28" height="28" loading="lazy" alt="">Ren Okafor — Growth</span>
-      <span class="when">23:05 JST</span>
+    <div class="testimonial">
+      <p>"Took ten minutes to set up. Adoption was instant because it's less work, not more."</p>
+      <div class="person">
+        <img class="avatar" src="https://i.pravatar.cc/56?img=68" width="28" height="28" loading="lazy" alt="Sana Idris">
+        <span><strong>Sana Idris</strong><span>COO, Kestrel Labs</span></span>
+      </div>
     </div>
   </div>
 </div>
+<div class="cta-repeat"><a href="#signup">Start my free trial →</a></div>
 
-<div class="trust">
-  <h2>Trusted by teams who ship</h2>
-  <div class="logo-row">
-    <span class="serif">Northfield</span>
-    <span class="mono">Kestrel</span>
-    <span class="sans">Halyard</span>
-    <span class="serif">Overlook</span>
-    <span class="mono">Fenwick</span>
+<div class="faq">
+  <div class="section-head"><h2>Questions people ask</h2></div>
+  <div class="faq-item">
+    <h3>Do we ever need to meet live?</h3>
+    <p>Loopline replaces status meetings, not decisions. Most teams keep one weekly sync and drop the daily standup entirely.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How is this different from Slack?</h3>
+    <p>Slack is a stream; updates get buried in an hour. Loopline threads each person's update by day and project, so it's still findable a month later.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What does it cost?</h3>
+    <p>Free for teams up to 5. Paid plans start at $6/user/month, billed monthly, cancel anytime.</p>
   </div>
 </div>
 
-<div class="about">
-  <h2>About Us</h2>
-  <p>Loopline was founded with a simple idea in mind: teams work better when they are organized. Over the years we have grown into a company that cares about our customers and strives to deliver value in everything we do. We believe in quality, innovation, and putting people first.</p>
-</div>
-
-<div class="signup">
-  <div class="panel-title">Get in touch</div>
+<div class="signup" id="signup">
+  <h2>Book a demo</h2>
+  <p class="lede">15 minutes, no slide deck. We'll show you the feed with your own team's time zones.</p>
   <form>
-    <label>First Name</label>
-    <input type="text">
-    <label>Last Name</label>
-    <input type="text">
-    <label>Company</label>
-    <input type="text">
-    <label>Job Title</label>
-    <input type="text">
-    <label>Phone Number</label>
-    <input type="text">
-    <label>Email</label>
-    <input type="email">
-    <button type="submit">Submit</button>
+    <label for="f-name">Name</label>
+    <input id="f-name" name="name" type="text" autocomplete="name">
+    <label for="f-email">Work email</label>
+    <input id="f-email" name="email" type="email" autocomplete="email" required>
+    <button type="submit">Book my demo</button>
   </form>
+  <p class="privacy-note">No credit card. We'll never share your email.</p>
 </div>
+
+</main>
 
 <footer>
-  &copy; Loopline
+  <div class="footer-inner">
+    <span class="company">Loopline, Inc. — Made for distributed teams</span>
+    <span>
+      <a href="mailto:hello@loopline-demo.vercel.app">hello@loopline-demo.vercel.app</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+    </span>
+  </div>
 </footer>
 
 </body>
